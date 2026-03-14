@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACES Compliance Systems | Warehouse Safety Compliance</title>
+<meta name="description" content="OSHA safety compliance auditing for warehouses. Fractional safety director services. Serving PA warehouses along the I-81 corridor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0B1D32;--navy-light:#132B47;--orange:#F07316;--orange-glow:rgba(240,115,22,0.15);--slate:#94A3B8;--light:#F1F5F9;--white:#FFFFFF;--red:#DC2626;--green:#16A34A}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#1A1A1A;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.nav{background:var(--navy);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);position:fixed;top:0;left:0;right:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{width:36px;height:36px}
+.nav-name{font-size:16px;font-weight:700;color:var(--white);letter-spacing:0.5px}
+.nav-name span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--slate);font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--orange);color:white !important;font-size:13px;font-weight:700;padding:10px 20px;border-radius:6px;transition:transform 0.2s}
+.nav-cta:hover{transform:translateY(-1px)}
+.hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;padding:80px 40px;position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,115,22,0.12);border:1px solid rgba(240,115,22,0.25);border-radius:100px;padding:6px 16px;margin-bottom:24px}
+.hero-badge span{font-size:12px;font-weight:700;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,56px);color:var(--white);line-height:1.15;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:18px;color:var(--slate);line-height:1.7;margin-bottom:32px;max-width:520px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:white;font-size:16px;font-weight:700;padding:16px 32px;border-radius:8px;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;border:none}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,115,22,0.35)}
+.hero-stats{display:grid;grid-template-columns:1fr;gap:16px}
+.stat-card{background:var(--navy-light);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px 28px}
+.stat-card .number{font-size:36px;font-weight:800;color:var(--orange);margin-bottom:4px}
+.stat-card .label{font-size:14px;color:var(--slate);font-weight:500}
+.problem{padding:100px 40px;background:var(--white)}
+.problem-inner{max-width:900px;margin:0 auto;text-align:center}
+.section-tag{font-size:12px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.problem h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:20px}
+.problem p{font-size:17px;color:#475569;max-width:700px;margin:0 auto 40px}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.problem-card{background:var(--light);border-radius:12px;padding:28px;border-left:4px solid var(--red)}
+.problem-card .card-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.problem-card .card-text{font-size:14px;color:#64748B;line-height:1.7}
+.problem-card .card-stat{font-size:24px;font-weight:800;color:var(--red);margin-bottom:8px}
+.solution{padding:100px 40px;background:var(--navy)}
+.solution-inner{max-width:1100px;margin:0 auto}
+.solution .section-tag{color:var(--orange)}
+.solution h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--white);margin-bottom:16px}
+.solution>p,.solution-inner>p{font-size:17px;color:var(--slate);max-width:700px;margin-bottom:50px}
+.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sol-card{background:var(--navy-light);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:32px;transition:border-color 0.3s}
+.sol-card:hover{border-color:var(--orange)}
+.sol-card .sol-num{font-size:13px;font-weight:800;color:var(--orange);letter-spacing:2px;margin-bottom:12px}
+.sol-card .sol-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px}
+.sol-card .sol-text{font-size:14px;color:var(--slate);line-height:1.7}
+
+/* Why Trust ACES Section */
+.trust{padding:100px 40px;background:var(--white)}
+.trust-inner{max-width:900px;margin:0 auto;text-align:center}
+.trust h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:20px}
+.trust>p,.trust-inner>p{font-size:17px;color:#475569;max-width:700px;margin:0 auto 40px}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.trust-card{background:var(--light);border-radius:12px;padding:28px;border-left:4px solid var(--green)}
+.trust-card .card-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.trust-card .card-text{font-size:14px;color:#64748B;line-height:1.7}
+
+/* FAQ Section */
+.faq{padding:100px 40px;background:var(--light)}
+.faq-inner{max-width:800px;margin:0 auto;text-align:center}
+.faq h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:50px}
+.faq-list{text-align:left;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid #E2E8F0;transition:border-color 0.3s}
+.faq-item:hover{border-color:var(--orange)}
+.faq-item summary{padding:20px 28px;font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;-webkit-user-select:none;user-select:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;font-weight:700;color:var(--orange);flex-shrink:0;transition:transform 0.3s}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .faq-answer{padding:0 28px 20px;font-size:15px;color:#475569;line-height:1.7}
+
+/* Contact Form Styles */
+.cta-section{padding:100px 40px;background:linear-gradient(160deg,var(--navy) 0%,#1A365D 100%);text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;width:800px;height:800px;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--orange-glow) 0%,transparent 60%);pointer-events:none}
+.cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.cta-section h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--white);margin-bottom:16px}
+.cta-section p{font-size:17px;color:var(--slate);margin-bottom:36px}
+.contact-form{text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+.contact-form .form-group{display:flex;flex-direction:column;gap:6px}
+.contact-form .form-group.full-width{grid-column:1/-1}
+.contact-form label{font-size:13px;font-weight:600;color:var(--slate);letter-spacing:0.5px}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{background:var(--navy-light);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px 16px;font-size:15px;font-family:'DM Sans',sans-serif;color:var(--white);transition:border-color 0.2s;outline:none;width:100%}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:rgba(148,163,184,0.5)}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{border-color:var(--orange)}
+.contact-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.contact-form select option{background:var(--navy);color:var(--white)}
+.contact-form textarea{resize:vertical;min-height:80px}
+.form-submit{grid-column:1/-1;display:flex;justify-content:center;margin-top:8px}
+.form-submit button{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:white;font-size:18px;font-weight:700;padding:18px 40px;border-radius:8px;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
+.form-submit button:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,115,22,0.35)}
+.cta-details{display:flex;justify-content:center;gap:40px;margin-top:40px}
+.cta-detail{text-align:center}
+.cta-detail .detail-label{font-size:12px;color:var(--slate);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.cta-detail .detail-value{font-size:15px;color:var(--white);font-weight:600}
+.cta-detail .detail-value a{color:var(--orange);transition:opacity 0.2s}
+.cta-detail .detail-value a:hover{opacity:0.8}
+.email-direct{font-size:15px;color:var(--slate);margin-bottom:8px}
+.email-direct a{color:var(--orange);font-weight:600;transition:opacity 0.2s}
+.email-direct a:hover{opacity:0.8}
+
+/* Thank you message */
+.thank-you{display:none;text-align:center;padding:40px 20px}
+.thank-you h3{font-family:'DM Serif Display',serif;font-size:28px;color:var(--white);margin-bottom:12px}
+.thank-you p{font-size:17px;color:var(--slate)}
+.thank-you .checkmark{width:64px;height:64px;border-radius:50%;background:var(--green);display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px}
+.thank-you .checkmark svg{width:32px;height:32px}
+
+.compare{padding:100px 40px;background:var(--white)}
+.compare-inner{max-width:900px;margin:0 auto;text-align:center}
+.compare h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,42px);color:var(--navy);margin-bottom:50px}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;text-align:left;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.compare-table th{padding:16px 24px;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.compare-table th:first-child{background:var(--light);color:#64748B;font-weight:600}
+.compare-table th:nth-child(2){background:#FEE2E2;color:var(--red);font-weight:700}
+.compare-table th:nth-child(3){background:#0B1D32;color:var(--orange);font-weight:700}
+.compare-table td{padding:14px 24px;border-bottom:1px solid #E2E8F0;font-size:14px;color:#334155}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table td:nth-child(3){background:rgba(240,115,22,0.04);font-weight:600}
+
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:40px;text-align:center}
+footer p{font-size:13px;color:#475569}
+
+@media(max-width:768px){
+  .nav{padding:16px 20px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero-inner{grid-template-columns:1fr;padding:60px 24px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .problem{padding:60px 24px}
+  .problem-grid,.solution-grid,.trust-grid{grid-template-columns:1fr}
+  .solution{padding:60px 24px}
+  .trust{padding:60px 24px}
+  .compare{padding:60px 24px}
+  .compare-table{font-size:13px}
+  .compare-table th,.compare-table td{padding:10px 14px}
+  .faq{padding:60px 24px}
+  .faq-item summary{padding:16px 20px;font-size:15px}
+  .faq-item .faq-answer{padding:0 20px 16px;font-size:14px}
+  .cta-section{padding:60px 24px}
+  .contact-form{grid-template-columns:1fr}
+  .cta-details{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8 C50 8, 88 48, 88 64 C88 82, 70 95, 50 95 C30 95, 12 82, 12 64 C12 48, 50 8, 50 8Z" fill="#0B1D32" stroke="#F07316" stroke-width="3.5"/>
+      <path d="M50 28 C50 28, 72 54, 72 64 C72 76, 62 83, 50 83 C38 83, 28 76, 28 64 C28 54, 50 28, 50 28Z" fill="#F07316" opacity="0.15"/>
+      <text x="50" y="72" text-anchor="middle" fill="#F07316" font-family="DM Serif Display,serif" font-size="30" font-weight="700">A</text>
+    </svg>
+    <div class="nav-name"><span>ACES</span> Compliance Systems</div>
+  </div>
+  <div class="nav-links">
+    <a href="#problem">Why ACES</a>
+    <a href="#solution">Services</a>
+    <a href="#compare">Compare</a>
+    <a href="#contact" class="nav-cta">Free Assessment</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><div class="dot"></div><span>Now Serving PA Warehouses</span></div>
+      <h1>Your Warehouse Gets a <em>Safety Director</em> Without the $100K Salary</h1>
+      <p>ACES delivers monthly OSHA compliance audits, corrective action plans, and inspection-ready documentation. You get the outcome of a full-time EHS director at a fraction of the cost. No software to learn. No logins. No headaches.</p>
+      <a href="#contact" class="hero-cta">Request a Free Assessment &rarr;</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="number">$16,550</div>
+        <div class="label">Minimum OSHA penalty per serious violation in 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$111K+</div>
+        <div class="label">Average exposure found per facility audit</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">75%+</div>
+        <div class="label">Cost savings vs. hiring a full-time safety director</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="section-tag">The Problem</div>
+    <h2>OSHA Doesn't Care That You Can't Afford a Safety Director</h2>
+    <p>Most warehouses between 50 and 500 employees don't have a dedicated safety person. But OSHA inspectors don't ask if you have one — they just write citations.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="card-stat">$16,550</div>
+        <div class="card-title">Per Serious Violation</div>
+        <div class="card-text">That's the minimum for a single citation. Most warehouse inspections result in 5-10 citations. Do the math.</div>
+      </div>
+      <div class="problem-card">
+        <div class="card-stat">3-Year NEP</div>
+        <div class="card-title">OSHA Is Targeting Warehouses</div>
+        <div class="card-text">In July 2024, OSHA launched a 3-year National Emphasis Program specifically targeting warehousing and distribution operations.</div>
+      </div>
+      <div class="problem-card">
+        <div class="card-stat">$100K-$140K</div>
+        <div class="card-title">Full-Time EHS Director Cost</div>
+        <div class="card-text">Salary plus benefits, training, certifications, and turnover risk. Most small-to-mid warehouses simply can't justify it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution" id="solution">
+  <div class="solution-inner">
+    <div class="section-tag">The Solution</div>
+    <h2>Compliance as a Service. Not Software.</h2>
+    <p>We act as your fractional safety director. Every month, we audit your facility, deliver a boardroom-ready compliance report, and give you a step-by-step plan to fix every issue — before OSHA finds it.</p>
+    <div class="solution-grid">
+      <div class="sol-card">
+        <div class="sol-num">01</div>
+        <div class="sol-title">Monthly Compliance Audits</div>
+        <div class="sol-text">We assess your facility against every applicable OSHA 1910 standard — walking-working surfaces, fire protection, electrical, powered industrial trucks, hazard communication, PPE, and more. Every finding is cited to the specific CFR code.</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">02</div>
+        <div class="sol-title">Branded Compliance Reports</div>
+        <div class="sol-text">You receive a professional report with your compliance score, prioritized findings, estimated penalty exposure, and specific corrective actions with deadlines. If an inspector shows up, this report is your evidence of due diligence.</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">03</div>
+        <div class="sol-title">Monthly Review Call</div>
+        <div class="sol-text">A 30-minute monthly call to walk through findings, answer questions, discuss regulatory changes, and make sure your team is on track with corrective actions. This is your safety director on speed dial.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="trust">
+  <div class="trust-inner">
+    <div class="section-tag">Credibility</div>
+    <h2>Why Trust ACES</h2>
+    <p>We don't just know the regulations — we've lived them. ACES was built by someone who has managed warehouse safety programs from the floor up.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="card-title">12+ Years in Warehouse Safety</div>
+        <div class="card-text">Led EHS programs across warehouse and distribution networks. Former Regional Safety Manager at Amazon, overseeing multi-site compliance operations.</div>
+      </div>
+      <div class="trust-card">
+        <div class="card-title">Not a Consultant Who Googled OSHA</div>
+        <div class="card-text">Every audit is conducted by someone who has walked warehouse floors, managed injury logs, and gone through OSHA inspections firsthand.</div>
+      </div>
+      <div class="trust-card">
+        <div class="card-title">Built for Warehouses, Not Offices</div>
+        <div class="card-text">ACES was purpose-built for warehouse and distribution operations. We know powered industrial trucks, dock operations, racking inspections, and hazardous material handling because that's all we do.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare" id="compare">
+  <div class="compare-inner">
+    <div class="section-tag">Why ACES</div>
+    <h2>The Math Speaks for Itself</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Full-Time EHS Director</th>
+          <th>ACES Compliance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Annual Cost</td><td>$100,000 - $140,000</td><td>A fraction of the cost</td></tr>
+        <tr><td>Monthly Audits</td><td>Depends on bandwidth</td><td>Every month, guaranteed</td></tr>
+        <tr><td>Branded Reports</td><td>Maybe, if they have time</td><td>Delivered automatically</td></tr>
+        <tr><td>OSHA Citation Tracking</td><td>Manual spreadsheets</td><td>Real-time with specific CFR codes</td></tr>
+        <tr><td>Penalty Exposure Analysis</td><td>Rarely calculated</td><td>Included in every report</td></tr>
+        <tr><td>Turnover Risk</td><td>Average 2-3 years</td><td>Zero — the service doesn't quit</td></tr>
+        <tr><td>Ramp-Up Time</td><td>3-6 months</td><td>First audit this month</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="section-tag">FAQ</div>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What does the free assessment include?</summary>
+        <div class="faq-answer">We walk your facility (in person for PA locations, or via video for remote), identify OSHA compliance gaps against applicable 1910 standards, and deliver a sample report showing findings, estimated penalty exposure, and recommended corrective actions. No cost. No obligation.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from hiring a safety consultant?</summary>
+        <div class="faq-answer">Most consultants come in once, hand you a binder, and leave. ACES provides ongoing monthly audits with branded reports, corrective action tracking, and a dedicated monthly review call. It's a fractional safety director — not a one-time audit.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What types of warehouses do you serve?</summary>
+        <div class="faq-answer">We serve warehousing and distribution operations including 3PLs, fulfillment centers, cold storage, and manufacturing facilities with warehouse components. Currently serving the Pennsylvania I-81 Corridor and Lehigh Valley region.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What OSHA standards do you audit against?</summary>
+        <div class="faq-answer">We audit against all applicable OSHA 1910 General Industry standards including walking-working surfaces, fire protection, electrical, powered industrial trucks, hazard communication, PPE, lockout/tagout, and more. Every finding is cited to the specific CFR code.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How quickly can we start?</summary>
+        <div class="faq-answer">We can schedule your first audit within one week of signing up. Most clients receive their first compliance report within two weeks.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <h2>Get a Free Safety Assessment of Your Facility</h2>
+    <p>We'll audit your warehouse floor, identify every OSHA compliance gap, and deliver a sample report showing exactly what an inspector would find. No obligation. No software to install. No strings.</p>
+    
+    <div id="form-container">
+      <form name="assessment-request" data-netlify="true" class="contact-form" id="assessment-form">
+        <input type="hidden" name="form-name" value="assessment-request">
+        <div class="form-group">
+          <label for="full-name">Full Name *</label>
+          <input type="text" id="full-name" name="full-name" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company / Facility Name *</label>
+          <input type="text" id="company" name="company" placeholder="Acme Distribution LLC" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="john@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="(570) 555-0123" required>
+        </div>
+        <div class="form-group">
+          <label for="employees">Approximate Employee Count *</label>
+          <select id="employees" name="employees" required>
+            <option value="" disabled selected>Select range</option>
+            <option value="1-50">1–50</option>
+            <option value="50-100">50–100</option>
+            <option value="100-250">100–250</option>
+            <option value="250-500">250–500</option>
+            <option value="500+">500+</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Tell us about your facility or any specific concerns..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Request Your Free Assessment &rarr;</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="thank-you" id="thank-you">
+      <div class="checkmark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3>Thank You!</h3>
+      <p>We've received your request. Expect to hear from us within one business day.</p>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="email-direct">Or email us directly at <a href="mailto:acescompliancesystems@gmail.com">acescompliancesystems@gmail.com</a></div>
+    </div>
+
+    <div class="cta-details">
+      <div class="cta-detail">
+        <div class="detail-label">Email</div>
+        <div class="detail-value"><a href="mailto:acescompliancesystems@gmail.com">acescompliancesystems@gmail.com</a></div>
+      </div>
+      <div class="cta-detail">
+        <div class="detail-label">Service Area</div>
+        <div class="detail-value">Pennsylvania &mdash; I-81 Corridor &amp; Lehigh Valley</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 ACES Compliance Systems LLC &bull; Jessup, PA &bull; All rights reserved</p>
+</footer>
+
+<script>
+document.getElementById('assessment-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var formData = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  }).then(function() {
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('thank-you').style.display = 'block';
+  }).catch(function() {
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('thank-you').style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>
