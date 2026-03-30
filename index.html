@@ -213,6 +213,7 @@ footer p{font-size:13px;color:#475569}
     <a href="#problem">Why ACES</a>
     <a href="#solution">Services</a>
     <a href="#compare">Compare</a>
+    <a href="#scorecard">Free Scorecard</a>
     <a href="#contact" class="nav-cta">Free Assessment</a>
   </div>
 </nav>
@@ -368,7 +369,33 @@ footer p{font-size:13px;color:#475569}
     </div>
   </div>
 </section>
-
+<section class="scorecard" id="scorecard">
+  <div class="scorecard-inner">
+    <div class="scorecard-text">
+      <div class="section-tag">Free Resource</div>
+      <h2>OSHA Warehouse Compliance Scorecard</h2>
+      <p>OSHA inspectors check the same 15 things at every warehouse. This free scorecard lets you self-assess your facility in under 10 minutes.</p>
+      <ul class="scorecard-list">
+        <li>15 most-cited OSHA violations in warehouses</li>
+        <li>Specific CFR codes for each item</li>
+        <li>Yes / No / Not Sure scoring system</li>
+        <li>Risk level guide so you know where you stand</li>
+      </ul>
+      <p style="font-size:13px;color:#64748B;">Most warehouses score between 7 and 10 out of 15.</p>
+    </div>
+    <div class="scorecard-form">
+      <h3>Download the Free Scorecard</h3>
+      <p class="form-sub">Enter your info below and get instant access.</p>
+      <form name="scorecard-download" method="POST" data-netlify="true" action="/ACES_OSHA_Warehouse_Compliance_Scorecard.pdf">
+        <input type="hidden" name="form-name" value="scorecard-download">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Work Email" required>
+        <input type="text" name="company" placeholder="Company Name" required>
+        <button type="submit">Download Scorecard &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
 <section class="cta-section" id="contact">
   <div class="cta-inner">
     <h2>Get a Free Safety Assessment of Your Facility</h2>
