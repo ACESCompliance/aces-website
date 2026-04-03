@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scorecard Download | ACES Compliance Systems</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#0B1D32;min-height:100vh;display:flex;align-items:center;justify-content:center;color:#fff}
+.card{background:#132B47;border-radius:16px;padding:48px;max-width:520px;text-align:center;border:1px solid rgba(255,255,255,0.08)}
+h1{font-size:28px;margin-bottom:12px}
+h1 span{color:#F07316}
+p{color:#94A3B8;font-size:16px;line-height:1.6;margin-bottom:24px}
+.btn{display:inline-block;background:#F07316;color:#fff;font-size:16px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px)}
+.back{display:block;margin-top:20px;color:#94A3B8;font-size:14px;text-decoration:none}
+.back:hover{color:#fff}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Your <span>Scorecard</span> is Ready!</h1>
+<p>Your download should start automatically. If it doesn't, click the button below.</p>
+<a href="/ACES_OSHA_Warehouse_Compliance_Scorecard.pdf" download class="btn">Download Scorecard</a>
+<a href="/" class="back">&larr; Back to ACES Compliance Systems</a>
+</div>
+<script>
+window.onload = function() {
+  var a = document.createElement('a');
+  a.href = '/ACES_OSHA_Warehouse_Compliance_Scorecard.pdf';
+  a.download = 'ACES_OSHA_Warehouse_Compliance_Scorecard.pdf';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+</script>
+</body>
+</html>
