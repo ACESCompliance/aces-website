@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://acescompliancesystems.netlify.app/sitemap.xml
