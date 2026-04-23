@@ -2,3 +2,6 @@
 .DS_Store
 Thumbs.db
 *.log
+# Node dependencies for the PDF generation tool
+tools/node_modules/
+tools/package-lock.json
