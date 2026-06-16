@@ -3,16 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACES Compliance Systems | Monthly OSHA Audits for Pennsylvania Warehouses</title>
-<meta name="description" content="Your warehouse gets a fractional safety director — monthly OSHA compliance audits, corrective action plans, and inspection-ready reports — starting at $2,000/month. Serving Pennsylvania warehouses 50–500 employees.">
-<meta property="og:title" content="ACES Compliance Systems | Monthly OSHA Audits for Pennsylvania Warehouses">
-<meta property="og:description" content="Your warehouse gets a fractional safety director — monthly OSHA compliance audits, corrective action plans, and inspection-ready reports — starting at $2,000/month. Serving Pennsylvania warehouses 50–500 employees.">
+<title>OSHA Compliance for PA Warehouses | Warehouse Safety Audits in Pennsylvania | ACES</title>
+<meta name="description" content="OSHA compliance for PA warehouses — ACES delivers AI-powered monthly warehouse safety audits in Pennsylvania, corrective action plans, and inspection-ready reports for facilities with 50–500 employees. Book a free consultation.">
+<meta name="keywords" content="OSHA compliance for PA warehouses, warehouse safety audits Pennsylvania, OSHA warehouse audit, fractional safety director, warehouse compliance Pennsylvania, OSHA 1910 audit">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://acescompliancesystems.netlify.app/">
+<meta property="og:title" content="OSHA Compliance for PA Warehouses | Warehouse Safety Audits in Pennsylvania">
+<meta property="og:description" content="AI-powered monthly OSHA warehouse safety audits across Pennsylvania, corrective action plans, and inspection-ready reports for warehouses with 50–500 employees. Book a free consultation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://acescompliancesystems.netlify.app">
+<meta property="og:site_name" content="ACES Compliance Systems">
 <meta property="og:image" content="https://acescompliancesystems.netlify.app/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ACES Compliance Systems | Monthly OSHA Audits for Pennsylvania Warehouses">
-<meta name="twitter:description" content="Your warehouse gets a fractional safety director — monthly OSHA compliance audits, corrective action plans, and inspection-ready reports — starting at $2,000/month. Serving Pennsylvania warehouses 50–500 employees.">
+<meta name="twitter:title" content="OSHA Compliance for PA Warehouses | Warehouse Safety Audits in Pennsylvania">
+<meta name="twitter:description" content="AI-powered monthly OSHA warehouse safety audits across Pennsylvania, corrective action plans, and inspection-ready reports. Book a free consultation.">
 <meta name="twitter:image" content="https://acescompliancesystems.netlify.app/logo.png">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="apple-touch-icon" href="/logo.png">
@@ -109,6 +113,30 @@ section.pad{padding:100px 0}
 .sol-tag{display:inline-block;font-size:10px;font-weight:800;color:var(--orange);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px;background:rgba(240,115,22,0.1);padding:4px 10px;border-radius:4px}
 .sol-title{font-size:19px;font-weight:700;color:var(--white);margin-bottom:10px}
 .sol-text{font-size:14px;color:var(--slate);line-height:1.7}
+
+/* Tiers / Service Levels */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.tier-card{background:var(--navy-light);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;transition:border-color 0.3s,transform 0.2s}
+.tier-card:hover{transform:translateY(-3px)}
+.tier-card.base:hover{border-color:rgba(255,255,255,0.2)}
+.tier-card.featured{border-color:rgba(240,115,22,0.5);box-shadow:0 0 0 1px rgba(240,115,22,0.2),0 20px 50px rgba(240,115,22,0.08)}
+.tier-card.featured:hover{border-color:var(--orange)}
+.tier-level{display:inline-flex;align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.tier-card.base .tier-level{background:rgba(148,163,184,0.15);color:var(--slate)}
+.tier-card.addon .tier-level{background:rgba(37,99,235,0.18);color:#60A5FA}
+.tier-card.featured .tier-level{background:rgba(240,115,22,0.15);color:var(--orange)}
+.tier-icon{width:48px;height:48px;border-radius:10px;background:rgba(240,115,22,0.15);display:flex;align-items:center;justify-content:center;color:var(--orange);margin-bottom:18px}
+.tier-name{font-family:'DM Serif Display',serif;font-size:23px;color:var(--white);margin-bottom:10px;line-height:1.2}
+.tier-desc{font-size:14.5px;color:var(--slate);line-height:1.7;margin-bottom:20px}
+.tier-features{list-style:none;margin-bottom:26px}
+.tier-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--slate);line-height:1.55;padding:6px 0}
+.tier-features li .tick{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(240,115,22,0.12);color:var(--orange);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.tier-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;padding:13px 20px;border-radius:8px;transition:transform 0.2s,box-shadow 0.2s,background 0.2s,border-color 0.2s}
+.tier-card.featured .tier-cta{background:var(--orange);color:white}
+.tier-card.featured .tier-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(240,115,22,0.35)}
+.tier-card.base .tier-cta,.tier-card.addon .tier-cta{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.18)}
+.tier-card.base .tier-cta:hover,.tier-card.addon .tier-cta:hover{border-color:var(--orange);color:var(--orange)}
+.tier-note{text-align:center;font-size:13.5px;color:var(--slate);font-style:italic;max-width:640px;margin:36px auto 0}
 
 /* Process / How It Works */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;margin-top:20px}
@@ -266,7 +294,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .trust-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.05)}
   .nep{padding:24px 20px}
   .nep-inner{grid-template-columns:1fr;gap:16px;text-align:left}
-  .problem-grid,.solution-grid,.process-grid,.why-grid,.ind-grid,.coverage-grid{grid-template-columns:1fr}
+  .problem-grid,.solution-grid,.process-grid,.why-grid,.ind-grid,.coverage-grid,.tier-grid{grid-template-columns:1fr}
   .sample-grid,.scorecard-grid{grid-template-columns:1fr;gap:32px}
   .compare-table{font-size:13px}
   .compare-table th,.compare-table td{padding:10px 14px}
@@ -281,19 +309,44 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .trust-item{border-right:none !important}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ACES Compliance Systems LLC",
+  "description": "AI-powered OSHA compliance for Pennsylvania warehouses — monthly warehouse safety audits, corrective action plans, and inspection-ready reports.",
+  "url": "https://acescompliancesystems.netlify.app",
+  "logo": "https://acescompliancesystems.netlify.app/logo.png",
+  "image": "https://acescompliancesystems.netlify.app/logo.png",
+  "email": "acescompliancesystems@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jessup",
+    "addressRegion": "PA",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Pennsylvania"
+  },
+  "serviceType": ["OSHA Warehouse Safety Audits", "Warehouse Compliance Audits", "Fractional Safety Director"],
+  "sameAs": ["https://www.linkedin.com/company/aces-compliance-systems/"]
+}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-brand" aria-label="ACES Compliance Systems home">
-    <img src="/logo.png" alt="ACES Compliance Systems" class="nav-logo">
+    <img src="/logo.png" alt="ACES Compliance Systems" class="nav-logo" width="36" height="36" decoding="async" fetchpriority="high">
     <div class="nav-name"><span>ACES</span> Compliance Systems</div>
   </a>
   <div class="nav-links">
     <a href="#problem">Why ACES</a>
     <a href="#how-it-works">How It Works</a>
-    <a href="#solution">Services</a>
+    <a href="#tiers">Services</a>
     <a href="#scorecard">Scorecard</a>
     <a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Free Consultation →</a>
@@ -434,6 +487,72 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- TIERS / SERVICE LEVELS -->
+<section class="light pad" id="tiers">
+  <div class="wrap">
+    <div style="text-align:center;max-width:800px;margin:0 auto 48px">
+      <div class="tag">Service Levels</div>
+      <h2 class="section-h">Coverage That Scales With Your Risk</h2>
+      <p class="sub" style="margin:0 auto">Start with monthly audits and add deeper support as your operation needs it. Every engagement is tailored to your facility — we'll map the right level of coverage on your free consultation.</p>
+    </div>
+    <div class="tier-grid">
+
+      <!-- Base tier -->
+      <div class="tier-card base">
+        <span class="tier-level">Base Tier</span>
+        <div class="tier-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><polyline points="9 15 11 17 15 13"></polyline></svg>
+        </div>
+        <div class="tier-name">Compliance Audits</div>
+        <div class="tier-desc">AI-powered monthly OSHA photo audits with branded, inspection-ready reports. The foundation every warehouse needs to stay ahead of the NEP.</div>
+        <ul class="tier-features">
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Monthly photo audit against 135+ OSHA 1910 standards</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Branded compliance report with CFR-cited findings</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Corrective action plan with priorities and deadlines</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Monthly review call to keep your team on track</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Book a Free Consultation</a>
+      </div>
+
+      <!-- Add-on tier -->
+      <div class="tier-card addon">
+        <span class="tier-level">Add-On</span>
+        <div class="tier-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </div>
+        <div class="tier-name">Emergency Support</div>
+        <div class="tier-desc">An on-call safety expert for the moments that matter most — OSHA inspections, workplace incidents, and urgent compliance questions that can't wait for the monthly call.</div>
+        <ul class="tier-features">
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Priority access when an OSHA inspector arrives</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Guidance through incidents and near-misses</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Urgent compliance answers when you need them fast</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Pairs with your monthly Compliance Audits</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Book a Free Consultation</a>
+      </div>
+
+      <!-- Top tier -->
+      <div class="tier-card featured">
+        <span class="tier-level">Top Tier</span>
+        <div class="tier-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div class="tier-name">Fractional Safety Director</div>
+        <div class="tier-desc">Dedicated safety leadership for ongoing compliance management — the full outcome of an in-house EHS director, embedded in your operation without the six-figure salary.</div>
+        <ul class="tier-features">
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Everything in Compliance Audits and Emergency Support</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>A dedicated safety director leading your program</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Ongoing program management and policy development</li>
+          <li><span class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Leadership-ready reporting and inspection readiness year-round</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Book a Free Consultation</a>
+      </div>
+
+    </div>
+    <p class="tier-note">Not sure which level fits your facility? That's exactly what the free consultation is for — we'll walk your risk profile and recommend the right coverage.</p>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="dark pad" id="how-it-works" style="background:#091524">
   <div class="wrap">
@@ -527,7 +646,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         </tr>
       </thead>
       <tbody>
-        <tr><td>Annual Cost</td><td>$100,000 – $140,000</td><td>Starting at $2,000/month — flat retainer</td></tr>
+        <tr><td>Annual Cost</td><td>$100,000 – $140,000</td><td>A fraction of a full-time hire — flat monthly retainer</td></tr>
         <tr><td>Monthly Audits</td><td>Depends on bandwidth</td><td>Every month, guaranteed</td></tr>
         <tr><td>Branded Reports</td><td>Maybe, if they have time</td><td>Delivered automatically</td></tr>
         <tr><td>OSHA Citation Tracking</td><td>Manual spreadsheets</td><td>Real-time with specific CFR codes</td></tr>
@@ -671,7 +790,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       </details>
       <details class="faq-item">
         <summary>What does it cost?</summary>
-        <p>ACES starts at $2,000/month — a flat monthly retainer with no long-term contract. That's roughly one-sixth the cost of a single serious OSHA citation, and less than one-fiftieth the annual cost of a full-time EHS director.</p>
+        <p>Pricing depends on your facility size, the level of coverage you need, and whether you add Emergency Support or a Fractional Safety Director. Every engagement is a flat monthly retainer with no long-term contract — and it's a fraction of the cost of a full-time EHS director or a single serious OSHA citation. We'll walk through exact pricing for your operation on your free consultation, once we understand your specific needs.</p>
       </details>
       <details class="faq-item">
         <summary>What OSHA standards do you audit against?</summary>
@@ -830,7 +949,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <!-- Column 1: Brand -->
     <div>
       <div class="footer-brand">
-        <img src="/logo.png" alt="ACES Compliance Systems">
+        <img src="/logo.png" alt="ACES Compliance Systems" width="32" height="32" loading="lazy" decoding="async">
         <div class="footer-brand-name"><span>ACES</span> Compliance Systems</div>
       </div>
       <div class="footer-tagline">Warehouse OSHA Compliance, Powered by AI.</div>
@@ -843,7 +962,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <ul class="footer-links">
         <li><a href="#problem">Why ACES</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#solution">Services</a></li>
+        <li><a href="#tiers">Services</a></li>
         <li><a href="#scorecard">Free Scorecard</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Book a Consultation</a></li>
