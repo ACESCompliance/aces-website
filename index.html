@@ -59,10 +59,6 @@ section.pad{padding:100px 0}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:1120px;margin:0 auto;padding:40px;position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,115,22,0.12);border:1px solid rgba(240,115,22,0.3);border-radius:100px;padding:7px 16px;margin-bottom:24px}
-.hero-badge span{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase}
-.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(36px,5vw,56px);color:var(--white);line-height:1.12;margin-bottom:22px;letter-spacing:-0.5px}
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero p{font-size:18px;color:var(--slate);line-height:1.7;margin-bottom:32px;max-width:560px}
@@ -289,9 +285,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   section.pad{padding:72px 0}
   .hero{padding-top:80px;padding-bottom:60px}
   .hero-inner{grid-template-columns:1fr;padding:20px 24px;gap:40px}
-  .hero-badge{max-width:100%;align-items:flex-start}
-  .hero-badge .dot{margin-top:5px}
-  .hero-badge span{white-space:normal;line-height:1.4}
   .hero-stats{grid-template-columns:repeat(3,1fr)}
   .hero-stat{padding:16px}
   .hero-stat .number{font-size:24px}
@@ -382,10 +375,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">
-        <div class="dot"></div>
-        <span>OSHA NEP Active • Warehouses Under Inspection</span>
-      </div>
       <h1>Your Warehouse Gets a <em>Safety Director</em> — Without the Full-Time Payroll</h1>
       <p>ACES delivers AI-powered OSHA compliance audits, corrective action plans, and inspection-ready reports. You get the outcome of a full-time EHS director at a fraction of the cost. No software to install. No logins. No headaches.</p>
       <div class="hero-ctas">
