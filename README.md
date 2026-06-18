@@ -4,7 +4,7 @@ Marketing website for ACES Compliance Systems LLC.
 
 - **Live:** https://acescompliancesystems.netlify.app
 - **Stack:** Static HTML/CSS, hosted on Netlify
-- **Forms:** Netlify Forms (consultation-request, scorecard-download)
+- **Forms:** Submit to Supabase (`website_consultation_requests` table) via the `@supabase/supabase-js` browser client
 - **Deploy:** Push to `main` — Netlify auto-deploys
 
 ## Files

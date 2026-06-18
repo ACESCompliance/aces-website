@@ -868,14 +868,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
         <p class="scorecard-note">Most warehouses score between 7 and 15 out of 25.</p>
       </div>
       <div>
-        <form name="scorecard-download" method="POST" data-netlify="true" action="/scorecard-thanks.html" class="scorecard-form">
-          <input type="hidden" name="form-name" value="scorecard-download">
+        <form name="scorecard-download" class="scorecard-form" id="scorecard-form">
           <h3>Download the Free Scorecard</h3>
           <p>Enter your info and get instant access.</p>
           <input type="text" name="name" placeholder="Full Name *" required>
           <input type="email" name="email" placeholder="Email *" required>
           <input type="text" name="company" placeholder="Company / Facility Name *" required>
-          <button type="submit">Download Scorecard →</button>
+          <button type="submit" id="scorecard-submit-btn">Download Scorecard →</button>
+          <p class="scorecard-success" id="scorecard-success" style="display:none;color:var(--orange);font-weight:600;margin-top:14px;text-align:center"></p>
         </form>
       </div>
     </div>
@@ -890,9 +890,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <p class="cta-sub">We'll walk through your facility's risk profile, identify immediate OSHA exposure points, and determine if ACES is the right fit for your operation. No obligation. No sales pressure.</p>
 
     <div id="form-wrapper">
-      <form name="consultation-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form" id="consultation-form">
-        <input type="hidden" name="form-name" value="consultation-request">
-        <p class="honeypot"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <form name="consultation-request" class="contact-form" id="consultation-form">
+        <p class="honeypot"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-row">
           <div class="form-group">
@@ -1007,6 +1006,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <p class="footer-copy">© 2026 ACES Compliance Systems LLC &bull; Jessup, PA &bull; All rights reserved</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // Obfuscated email (anti-scraper)
 (function(){
@@ -1015,23 +1015,79 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   if(link){link.textContent=e;link.href='mai'+'lto:'+e;}
 })();
 
-// Consultation form — AJAX submit so user stays on page and sees success state
+// ---- Supabase client (anon key — safe to expose; RLS allows anon INSERT only) ----
+var SUPABASE_URL='https://wuwdmqkblrbigdoehbrv.supabase.co';
+var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1d2RtcWtibHJiaWdkb2VoYnJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0OTQwNDIsImV4cCI6MjA4ODA3MDA0Mn0.BcD0Gz7NuBZypxfUrI7Cn4HK0OMrf6ll60QoQZCQfuQ';
+var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+function insertRequest(row){
+  return sb.from('website_consultation_requests').insert([row]);
+}
+
+// ---- Consultation form ----
 document.getElementById('consultation-form').addEventListener('submit',function(ev){
   ev.preventDefault();
   var form=ev.target,btn=document.getElementById('consultation-submit-btn'),orig=btn.textContent;
+  // Honeypot: silently succeed for bots without writing to the DB
+  if(form.elements['bot-field'] && form.elements['bot-field'].value){
+    form.style.display='none';
+    document.getElementById('form-success').style.display='block';
+    return;
+  }
+  var fd=new FormData(form);
+  // Fold the extra fields into the message so nothing is lost
+  var extras=[];
+  if(fd.get('city')) extras.push('City: '+fd.get('city'));
+  if(fd.get('employee_count')) extras.push('Employees: '+fd.get('employee_count'));
+  var msg=(fd.get('message')||'').trim();
+  if(extras.length){msg=(msg?msg+'\n\n':'')+extras.join(' | ');}
+  var row={
+    name:(fd.get('name')||'').trim(),
+    email:(fd.get('email')||'').trim(),
+    phone:(fd.get('phone')||'').trim(),
+    company:(fd.get('company')||'').trim(),
+    message:msg,
+    source:'website_consultation_form'
+  };
   btn.disabled=true;btn.textContent='Sending...';
-  fetch('/',{method:'POST',body:new URLSearchParams(new FormData(form)).toString(),headers:{'Content-Type':'application/x-www-form-urlencoded'}})
-    .then(function(r){
-      if(r.ok){
-        form.style.display='none';
-        document.getElementById('form-success').style.display='block';
-        document.getElementById('form-success').scrollIntoView({behavior:'smooth',block:'center'});
-      }else{throw new Error('submit failed');}
-    })
-    .catch(function(){
-      btn.disabled=false;btn.textContent=orig;
-      alert('Sorry, something went wrong. Please email us directly at acescompliancesystems@gmail.com');
-    });
+  insertRequest(row).then(function(res){
+    if(res.error){throw res.error;}
+    form.style.display='none';
+    document.getElementById('form-success').style.display='block';
+    document.getElementById('form-success').scrollIntoView({behavior:'smooth',block:'center'});
+  }).catch(function(err){
+    console.error('Consultation submit failed:',err);
+    btn.disabled=false;btn.textContent=orig;
+    alert('Sorry, something went wrong. Please email us directly at acescompliancesystems@gmail.com');
+  });
+});
+
+// ---- Scorecard download form ----
+document.getElementById('scorecard-form').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var form=ev.target,btn=document.getElementById('scorecard-submit-btn'),orig=btn.textContent;
+  var fd=new FormData(form);
+  var row={
+    name:(fd.get('name')||'').trim(),
+    email:(fd.get('email')||'').trim(),
+    phone:'',
+    company:(fd.get('company')||'').trim(),
+    message:'Requested the free OSHA Warehouse Compliance Scorecard.',
+    source:'website_scorecard_form'
+  };
+  btn.disabled=true;btn.textContent='Sending...';
+  insertRequest(row).then(function(res){
+    if(res.error){throw res.error;}
+    // Send the visitor to the thank-you / download page
+    window.location.href='/scorecard-thanks.html';
+  }).catch(function(err){
+    console.error('Scorecard submit failed:',err);
+    btn.disabled=false;btn.textContent=orig;
+    var s=document.getElementById('scorecard-success');
+    s.style.color='#fca5a5';
+    s.textContent='Sorry, something went wrong. Please email acescompliancesystems@gmail.com';
+    s.style.display='block';
+  });
 });
 </script>
 
