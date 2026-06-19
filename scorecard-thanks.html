@@ -3,107 +3,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Scorecard Is Downloading — ACES Compliance Systems</title>
-<meta name="description" content="Your OSHA Warehouse Compliance Scorecard is downloading now.">
+<title>OSHA Warehouse Compliance Scorecard — Self-Assessment | ACES</title>
+<meta name="description" content="Interactive OSHA warehouse compliance self-assessment across the 8 categories OSHA inspectors evaluate. Score your facility, estimate penalty exposure, and get your risk tier in under 10 minutes.">
+<meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--navy:#0B1D32;--navy-light:#132B47;--orange:#F07316;--orange-glow:rgba(240,115,22,0.15);--slate:#94A3B8;--white:#FFFFFF;--green:#16A34A}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow-x:hidden}
-body::before{content:'';position:absolute;top:50%;left:50%;width:800px;height:800px;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--orange-glow) 0%,transparent 60%);pointer-events:none}
-.nav-brand{position:absolute;top:28px;left:40px;display:flex;align-items:center;gap:12px;color:white;z-index:2}
-.nav-brand img{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:50%;padding:5px;box-shadow:0 0 0 1px rgba(255,255,255,0.15)}
-.nav-brand-name{font-size:14px;font-weight:700;letter-spacing:0.3px}
-.nav-brand-name span{color:var(--orange)}
-.container{position:relative;z-index:1;max-width:640px;width:100%;text-align:center}
-.checkmark{width:84px;height:84px;border-radius:50%;background:rgba(22,163,74,0.15);border:2px solid rgba(22,163,74,0.4);display:flex;align-items:center;justify-content:center;color:var(--green);margin:0 auto 28px}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,115,22,0.12);border:1px solid rgba(240,115,22,0.3);border-radius:100px;padding:6px 14px;margin-bottom:16px}
-.badge span{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:1.5px;text-transform:uppercase}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,5vw,44px);line-height:1.15;margin-bottom:18px;letter-spacing:-0.3px}
-.lead{font-size:17px;color:var(--slate);line-height:1.7;margin-bottom:32px}
-.card{background:var(--navy-light);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:28px;margin-bottom:28px;text-align:left}
-.card-h{font-size:15px;font-weight:700;color:var(--orange);margin-bottom:14px;letter-spacing:0.3px}
-.card-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.card-list li{font-size:14px;color:var(--slate);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
-.card-list li .n{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(240,115,22,0.15);color:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;margin-top:1px}
-.ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:white;font-size:15px;font-weight:700;padding:14px 26px;border-radius:8px;transition:transform 0.2s,box-shadow 0.2s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,115,22,0.35)}
-.btn-ghost{display:inline-flex;align-items:center;gap:6px;color:var(--slate);font-size:14px;font-weight:600;padding:14px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s}
-.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.3)}
-.fallback{font-size:13px;color:var(--slate);margin-top:20px}
-.fallback a{color:var(--orange);border-bottom:1px solid transparent;transition:border-color 0.2s}
-.fallback a:hover{border-color:var(--orange)}
+:root{--navy:#0B1D32;--navy-light:#132B47;--orange:#F07316;--orange-glow:rgba(240,115,22,0.15);--slate:#94A3B8;--light:#F1F5F9;--white:#FFFFFF;--red:#DC2626;--amber:#D97706;--green:#16A34A;--text:#1A1A1A;--text-soft:#475569;--border:#E2E8F0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.6;background:var(--light);padding-bottom:96px}
 a{text-decoration:none;color:inherit}
-@media(max-width:640px){
-  .nav-brand{position:static;margin-bottom:32px;justify-content:center}
-  body{justify-content:flex-start;padding-top:20px}
-  .card{padding:22px}
-  .ctas{flex-direction:column}
-  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{background:var(--navy);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{width:38px;height:38px;object-fit:contain;background:#fff;border-radius:50%;padding:5px;box-shadow:0 0 0 1px rgba(255,255,255,0.15)}
+.nav-name{font-size:15px;font-weight:700;color:var(--white);letter-spacing:0.3px}
+.nav-name span{color:var(--orange)}
+.nav-back{font-size:13px;color:var(--slate);font-weight:600;transition:color 0.2s}
+.nav-back:hover{color:var(--white)}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--white);padding:48px 24px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-160px;right:-160px;width:480px;height:480px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:920px;margin:0 auto;position:relative;z-index:1}
+.hero .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,4.4vw,40px);line-height:1.15;margin-bottom:14px}
+.hero p{font-size:16px;color:var(--slate);line-height:1.7;max-width:680px}
+.hero .how{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--white);background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:7px 13px}
+.chip .sw{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+
+/* Category blocks */
+main{padding:40px 0 20px}
+.cat{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:20px;box-shadow:0 2px 12px rgba(11,29,50,0.04)}
+.cat-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.cat-no{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--navy);color:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+.cat-title{font-family:'DM Serif Display',serif;font-size:21px;color:var(--navy);line-height:1.2}
+.cat-cfr{font-family:monospace;font-size:12px;color:var(--orange);font-weight:600;margin:2px 0 18px 52px}
+.item{padding:16px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:14px 20px;align-items:center}
+.item.first{border-top:none;padding-top:4px}
+.item-q{font-size:14.5px;color:var(--text);font-weight:500;line-height:1.5}
+.item-q .ref{display:block;font-family:monospace;font-size:11px;color:var(--text-soft);font-weight:400;margin-top:3px}
+.opts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.opt{position:relative;cursor:pointer}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt span{display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;padding:8px 12px;border-radius:7px;border:1.5px solid var(--border);color:var(--text-soft);background:var(--white);transition:all 0.15s;white-space:nowrap;user-select:none}
+.opt:hover span{border-color:var(--slate)}
+.opt input:checked+span{color:var(--white)}
+.opt.c input:checked+span{background:var(--green);border-color:var(--green)}
+.opt.p input:checked+span{background:var(--amber);border-color:var(--amber)}
+.opt.n input:checked+span{background:var(--red);border-color:var(--red)}
+.opt.x input:checked+span{background:var(--slate);border-color:var(--slate)}
+.opt input:focus-visible+span{box-shadow:0 0 0 3px var(--orange-glow)}
+
+/* Results card */
+.results{background:var(--navy);color:var(--white);border-radius:16px;padding:34px 30px;margin:8px 0 28px;position:relative;overflow:hidden}
+.results::before{content:'';position:absolute;bottom:-140px;left:-100px;width:420px;height:420px;background:radial-gradient(circle,var(--orange-glow) 0%,transparent 70%);pointer-events:none}
+.results-inner{position:relative;z-index:1}
+.results h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:6px}
+.results-sub{font-size:14px;color:var(--slate);margin-bottom:24px}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
+.res-box{background:var(--navy-light);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px}
+.res-box .lbl{font-size:11px;font-weight:700;color:var(--slate);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
+.res-box .big{font-size:34px;font-weight:800;line-height:1;color:var(--orange)}
+.res-box .small{font-size:12px;color:var(--slate);margin-top:6px}
+.tier-badge{display:inline-flex;align-items:center;gap:9px;font-size:18px;font-weight:800;padding:6px 4px;line-height:1}
+.tier-badge .tdot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.tier-low{color:var(--green)}.tier-low .tdot{background:var(--green)}
+.tier-medium{color:#FACC15}.tier-medium .tdot{background:#FACC15}
+.tier-high{color:var(--orange)}.tier-high .tdot{background:var(--orange)}
+.tier-critical{color:#F87171}.tier-critical .tdot{background:#F87171}
+.tier-none{color:var(--slate)}.tier-none .tdot{background:var(--slate)}
+.meter{height:12px;border-radius:100px;background:rgba(255,255,255,0.08);overflow:hidden;margin-bottom:10px}
+.meter-fill{height:100%;width:0;border-radius:100px;background:var(--orange);transition:width 0.4s ease,background 0.4s ease}
+.results-note{font-size:12.5px;color:var(--slate);line-height:1.65;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;margin-top:4px}
+
+/* CTA */
+.cta{background:linear-gradient(160deg,var(--navy) 0%,#1A365D 100%);border-radius:16px;padding:40px 32px;text-align:center;color:var(--white);margin-bottom:40px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--orange-glow) 0%,transparent 60%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:560px;margin:0 auto}
+.cta h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,3.4vw,32px);margin-bottom:12px}
+.cta p{font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:26px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:white;font-size:16px;font-weight:700;padding:16px 30px;border-radius:8px;transition:transform 0.2s,box-shadow 0.2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,115,22,0.35)}
+.cta-foot{font-size:13px;color:var(--slate);margin-top:18px}
+.cta-foot a{color:var(--orange);border-bottom:1px solid transparent;transition:border-color 0.2s}
+.cta-foot a:hover{border-color:var(--orange)}
+
+/* Sticky live bar */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(11,29,50,0.97);backdrop-filter:blur(8px);border-top:1px solid rgba(240,115,22,0.3);z-index:50;padding:12px 24px}
+.sticky-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:24px;justify-content:space-between;flex-wrap:wrap}
+.sticky-metrics{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.sm{display:flex;flex-direction:column;line-height:1.1}
+.sm .k{font-size:10px;font-weight:700;color:var(--slate);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.sm .v{font-size:19px;font-weight:800;color:var(--white)}
+.sm .v.orange{color:var(--orange)}
+.sticky-cta{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:white;font-size:13.5px;font-weight:700;padding:11px 20px;border-radius:8px;transition:transform 0.2s}
+.sticky-cta:hover{transform:translateY(-1px)}
+
+@media(max-width:720px){
+  .item{grid-template-columns:1fr;gap:10px}
+  .opts{justify-content:flex-start}
+  .res-grid{grid-template-columns:1fr;gap:12px}
+  .cat-cfr{margin-left:0}
+  .sticky-inner{gap:12px}
+  .sticky-metrics{gap:18px}
+  .sm .v{font-size:16px}
+  .sticky-cta{padding:10px 14px;font-size:12.5px}
+  .sticky-bar .sm.hide-sm{display:none}
+}
+@media(max-width:420px){
+  .opt span{padding:8px 10px;font-size:11.5px}
 }
 </style>
 </head>
 <body>
 
-<a href="/" class="nav-brand" aria-label="ACES Compliance Systems home">
-  <img src="/logo.png" alt="ACES Compliance Systems" width="32" height="32" decoding="async">
-  <div class="nav-brand-name"><span>ACES</span> Compliance Systems</div>
-</a>
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-brand" aria-label="ACES Compliance Systems home">
+    <img src="/logo.png" alt="ACES Compliance Systems" class="nav-logo" width="36" height="36" decoding="async">
+    <div class="nav-name"><span>ACES</span> Compliance Systems</div>
+  </a>
+  <a href="/" class="nav-back">← Back to site</a>
+</nav>
 
-<div class="container">
-  <div class="checkmark">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="tag">Interactive Self-Assessment</div>
+    <h1>OSHA Warehouse Compliance Scorecard</h1>
+    <p>Score your facility across the 8 areas OSHA inspectors evaluate during a warehouse inspection. Answer honestly for each item — your compliance score, estimated penalty exposure, and risk tier update live as you go. Nothing is submitted; this assessment stays in your browser.</p>
+    <div class="how">
+      <span class="chip"><span class="sw" style="background:var(--green)"></span>Compliant — in place &amp; documented</span>
+      <span class="chip"><span class="sw" style="background:var(--amber)"></span>Partial — exists but has gaps</span>
+      <span class="chip"><span class="sw" style="background:var(--red)"></span>Non-Compliant — missing</span>
+      <span class="chip"><span class="sw" style="background:var(--slate)"></span>N/A — doesn't apply</span>
+    </div>
   </div>
+</header>
 
-  <div class="badge"><span>Thanks For Your Request</span></div>
-  <h1>Your Scorecard Is On Its Way</h1>
-  <p class="lead">Your download should begin automatically. If it doesn't, use the button below. We've also received your details — expect a short follow-up email with extra OSHA resources for PA warehouses.</p>
+<main>
+  <div class="wrap">
+    <form id="scorecard">
+      <div id="categories"></div>
 
-  <div class="card">
-    <div class="card-h">While you're here — three things to do next</div>
-    <ol class="card-list">
-      <li><span class="n">1</span><span>Walk your facility with the scorecard and mark each of the 25 items honestly. Take ~10 minutes per zone.</span></li>
-      <li><span class="n">2</span><span>Add up your score. Most warehouses land between 7 and 15 out of 25 — there's almost always exposure.</span></li>
-      <li><span class="n">3</span><span>If your score is under 20, book a free 30-minute consultation. We'll walk through your top-risk items and show you what an OSHA inspector would write up.</span></li>
-    </ol>
+      <!-- RESULTS -->
+      <section class="results" id="results">
+        <div class="results-inner">
+          <h2>Your Compliance Results</h2>
+          <p class="results-sub" id="results-sub">Answer the items above to generate your facility's score.</p>
+
+          <div class="res-grid">
+            <div class="res-box">
+              <div class="lbl">Compliance Score</div>
+              <div class="big" id="r-score">—</div>
+              <div class="small" id="r-answered">0 of 33 items scored</div>
+            </div>
+            <div class="res-box">
+              <div class="lbl">Est. Penalty Exposure</div>
+              <div class="big" id="r-penalty">$0</div>
+              <div class="small" id="r-penalty-sub">Based on 2026 OSHA rates</div>
+            </div>
+            <div class="res-box">
+              <div class="lbl">Risk Tier</div>
+              <div class="tier-badge tier-none" id="r-tier"><span class="tdot"></span><span id="r-tier-label">Not scored</span></div>
+              <div class="small" id="r-tier-sub">Complete the assessment</div>
+            </div>
+          </div>
+
+          <div class="meter"><div class="meter-fill" id="r-meter"></div></div>
+
+          <div class="results-note" id="r-note">
+            Penalty estimates use 2026 OSHA maximums: <strong>$16,550</strong> per serious and per other-than-serious violation, with willful/repeat violations reaching <strong>$165,514</strong> each. Each Non-Compliant item is counted at the serious rate and each Partial item at roughly half, as a directional estimate of exposure — not a formal citation. An actual OSHA inspection can cite multiple instances per standard, so real-world exposure is often higher.
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="cta-inner">
+          <h2>Turn this scorecard into a defensible compliance program</h2>
+          <p>This self-assessment shows where you stand today. ACES delivers monthly AI-powered photo audits, CFR-cited findings, corrective action plans, and inspection-ready reports — so the gaps you just found get closed before an OSHA inspector finds them.</p>
+          <a href="https://calendly.com/nalsharife-acescompliancesystems/30min" target="_blank" rel="noopener" class="btn-primary">
+            Book a Free Consultation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <p class="cta-foot">Questions first? Email <a href="#" id="cta-email">loading…</a></p>
+        </div>
+      </section>
+    </form>
   </div>
+</main>
 
-  <div class="ctas">
-    <a href="/ACES_OSHA_Warehouse_Compliance_Scorecard.pdf" class="btn-primary" id="download-btn" download>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-      Download Scorecard Again
-    </a>
-    <a href="https://calendly.com/nalsharife-acescompliancesystems/30min" target="_blank" rel="noopener" class="btn-ghost">Book Free Consultation →</a>
+<!-- STICKY LIVE BAR -->
+<div class="sticky-bar">
+  <div class="sticky-inner">
+    <div class="sticky-metrics">
+      <div class="sm">
+        <span class="k">Score</span>
+        <span class="v orange" id="s-score">—</span>
+      </div>
+      <div class="sm hide-sm">
+        <span class="k">Exposure</span>
+        <span class="v" id="s-penalty">$0</span>
+      </div>
+      <div class="sm">
+        <span class="k">Risk Tier</span>
+        <span class="v" id="s-tier">Not scored</span>
+      </div>
+    </div>
+    <a href="#results" class="sticky-cta">View My Results →</a>
   </div>
-
-  <p class="fallback">Having trouble downloading? Email us at <a href="#" id="support-email">loading…</a></p>
 </div>
 
 <script>
-// Reveal email
+// ---- Reveal email (anti-scraper) ----
 (function(){
   var u='acescompliancesystems',d='gmail.com',e=u+'@'+d;
-  var link=document.getElementById('support-email');
-  if(link){link.textContent=e;link.href='mai'+'lto:'+e+'?subject=Scorecard%20Download%20Help';}
+  var link=document.getElementById('cta-email');
+  if(link){link.textContent=e;link.href='mai'+'lto:'+e+'?subject=OSHA%20Scorecard%20Question';}
 })();
 
-// Auto-trigger the download on load
-window.addEventListener('load',function(){
-  setTimeout(function(){
-    var a=document.createElement('a');
-    a.href='/ACES_OSHA_Warehouse_Compliance_Scorecard.pdf';
-    a.download='ACES_OSHA_Warehouse_Compliance_Scorecard.pdf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  },400);
+// ---- Assessment data: 8 categories OSHA evaluates in a warehouse inspection ----
+var CATEGORIES=[
+  {n:1,title:'Walking-Working Surfaces',cfr:'29 CFR 1910.22–25',items:[
+    {q:'Are all aisles and passageways at least 4 feet wide and clearly marked?',ref:'1910.22(b)'},
+    {q:'Are floors kept clean, dry, and free of slip/trip hazards?',ref:'1910.22(a)(2)'},
+    {q:'Are all floor holes and wall openings properly guarded?',ref:'1910.23'},
+    {q:'Is housekeeping maintained in storage and work areas?',ref:'1910.22(a)(1)'}
+  ]},
+  {n:2,title:'Powered Industrial Trucks',cfr:'29 CFR 1910.178',items:[
+    {q:'Are all forklift operators trained and certified within the last 3 years?',ref:'1910.178(l)(4)(iii)'},
+    {q:'Are daily pre-shift inspections documented?',ref:'1910.178(q)(7)'},
+    {q:'Is there a documented forklift maintenance program?',ref:'1910.178(q)'},
+    {q:'Are speed limits posted and pedestrian traffic patterns established?',ref:'1910.178(n)'},
+    {q:'Are forklifts equipped with proper safety devices (horns, lights, backup alarms)?',ref:'1910.178(a)(4)'}
+  ]},
+  {n:3,title:'Hazard Communication',cfr:'29 CFR 1910.1200',items:[
+    {q:'Is there a written Hazard Communication program?',ref:'1910.1200(e)'},
+    {q:'Are all chemical containers properly labeled with GHS labels?',ref:'1910.1200(f)'},
+    {q:'Are Safety Data Sheets accessible to all employees within the work area?',ref:'1910.1200(g)'},
+    {q:'Have all employees received HazCom training appropriate to their duties?',ref:'1910.1200(h)'}
+  ]},
+  {n:4,title:'Electrical Safety',cfr:'29 CFR 1910.303–308',items:[
+    {q:'Do all electrical panels have 36 inches of clear working space?',ref:'1910.303(g)(1)'},
+    {q:'Are all junction boxes and panel covers in place?',ref:'1910.305(b)(1)'},
+    {q:'Is all wiring properly secured and free of damage?',ref:'1910.305(b)'},
+    {q:'Are GFCI outlets installed where required (wet/damp locations)?',ref:'1910.304(b)(3)'}
+  ]},
+  {n:5,title:'Fire Protection & Emergency Exits',cfr:'29 CFR 1910.34–39, 1910.157',items:[
+    {q:'Are fire extinguishers inspected monthly and serviced annually?',ref:'1910.157(e)'},
+    {q:'Are all emergency exits clearly marked, illuminated, and unobstructed?',ref:'1910.37(b)'},
+    {q:'Is there a written Emergency Action Plan communicated to employees?',ref:'1910.38'},
+    {q:'Are exit routes properly maintained and accessible?',ref:'1910.37(a)'}
+  ]},
+  {n:6,title:'Material Storage & Handling',cfr:'29 CFR 1910.176',items:[
+    {q:'Are rack systems inspected regularly and load capacity posted?',ref:'1910.176(b)'},
+    {q:'Are materials stored securely without overhanging beam edges?',ref:'1910.176(b)'},
+    {q:'Are heavy items stored at appropriate heights to prevent tip-over?',ref:'1910.176(b)'},
+    {q:'Is there proper clearance between top of stock and sprinkler heads (18 inches)?',ref:'1910.159(c)(10)'}
+  ]},
+  {n:7,title:'Personal Protective Equipment',cfr:'29 CFR 1910.132–138',items:[
+    {q:'Has a PPE hazard assessment been completed and documented?',ref:'1910.132(d)'},
+    {q:'Is appropriate PPE provided to employees at no cost?',ref:'1910.132(h)'},
+    {q:'Are employees trained on proper use, care, and limitations of PPE?',ref:'1910.132(f)'},
+    {q:'Is respiratory protection available where required, with fit testing current?',ref:'1910.134(f)'}
+  ]},
+  {n:8,title:'Lockout/Tagout & Machine Guarding',cfr:'29 CFR 1910.147, 1910.212',items:[
+    {q:'Is there a written Lockout/Tagout program with machine-specific procedures?',ref:'1910.147(c)(4)'},
+    {q:'Are all employees who perform servicing trained on LOTO procedures?',ref:'1910.147(c)(7)'},
+    {q:'Are all moving parts on machinery properly guarded?',ref:'1910.212(a)(1)'},
+    {q:'Are annual LOTO procedure audits (periodic inspections) conducted?',ref:'1910.147(c)(6)'}
+  ]}
+];
+
+// ---- 2026 OSHA penalty rates ----
+var RATE_SERIOUS=16550;     // per serious violation
+var RATE_PARTIAL=8275;      // partial gap weighted at half the serious rate
+var MAX_WILLFUL=165514;     // willful/repeat maximum (context)
+
+var OPTS=[
+  {k:'c',v:'compliant',label:'Compliant',pts:1},
+  {k:'p',v:'partial',label:'Partial',pts:0.5},
+  {k:'n',v:'noncompliant',label:'Non-Compliant',pts:0},
+  {k:'x',v:'na',label:'N/A',pts:null}
+];
+
+var TOTAL_ITEMS=CATEGORIES.reduce(function(s,c){return s+c.items.length;},0);
+
+// ---- Render categories ----
+(function render(){
+  var html='';
+  var idx=0;
+  CATEGORIES.forEach(function(cat){
+    html+='<section class="cat">';
+    html+='<div class="cat-head"><div class="cat-no">'+cat.n+'</div><h2 class="cat-title">'+cat.title+'</h2></div>';
+    html+='<div class="cat-cfr">'+cat.cfr+'</div>';
+    cat.items.forEach(function(item,ii){
+      var name='q'+idx;
+      html+='<div class="item'+(ii===0?' first':'')+'">';
+      html+='<div class="item-q">'+item.q+'<span class="ref">'+item.ref+'</span></div>';
+      html+='<div class="opts">';
+      OPTS.forEach(function(o){
+        html+='<label class="opt '+o.k+'"><input type="radio" name="'+name+'" value="'+o.v+'"><span>'+o.label+'</span></label>';
+      });
+      html+='</div></div>';
+      idx++;
+    });
+    html+='</section>';
+  });
+  document.getElementById('categories').innerHTML=html;
+})();
+
+// ---- Scoring ----
+function fmtMoney(n){return '$'+n.toLocaleString('en-US');}
+
+function tierFor(pct){
+  if(pct>=80)return {key:'low',label:'Low Risk',cls:'tier-low'};
+  if(pct>=60)return {key:'medium',label:'Medium Risk',cls:'tier-medium'};
+  if(pct>=40)return {key:'high',label:'High Risk',cls:'tier-high'};
+  return {key:'critical',label:'Critical Risk',cls:'tier-critical'};
+}
+
+function tierSub(key){
+  switch(key){
+    case 'low':return 'Strong program — maintain and document';
+    case 'medium':return 'Notable gaps — prioritize corrections';
+    case 'high':return 'Significant exposure — act now';
+    case 'critical':return 'Severe exposure — immediate action needed';
+    default:return 'Complete the assessment';
+  }
+}
+
+function compute(){
+  var form=document.getElementById('scorecard');
+  var earned=0,scored=0,nonCompliant=0,partial=0;
+  for(var i=0;i<TOTAL_ITEMS;i++){
+    var sel=form.elements['q'+i];
+    if(!sel)continue;
+    var val=sel.value;
+    if(!val)continue;
+    var opt=OPTS.filter(function(o){return o.v===val;})[0];
+    if(opt.pts===null)continue; // N/A excluded
+    scored++;
+    earned+=opt.pts;
+    if(val==='noncompliant')nonCompliant++;
+    if(val==='partial')partial++;
+  }
+
+  var pct=scored>0?Math.round((earned/scored)*100):null;
+  var penalty=(nonCompliant*RATE_SERIOUS)+(partial*RATE_PARTIAL);
+
+  // Score box
+  document.getElementById('r-score').textContent=pct===null?'—':pct+'%';
+  document.getElementById('r-answered').textContent=scored+' of '+TOTAL_ITEMS+' items scored';
+  document.getElementById('s-score').textContent=pct===null?'—':pct+'%';
+
+  // Penalty
+  document.getElementById('r-penalty').textContent=fmtMoney(penalty);
+  document.getElementById('s-penalty').textContent=fmtMoney(penalty);
+  var psub=document.getElementById('r-penalty-sub');
+  if(nonCompliant+partial===0){
+    psub.textContent='Based on 2026 OSHA rates';
+  }else{
+    var parts=[];
+    if(nonCompliant)parts.push(nonCompliant+' non-compliant × '+fmtMoney(RATE_SERIOUS));
+    if(partial)parts.push(partial+' partial × '+fmtMoney(RATE_PARTIAL));
+    psub.textContent=parts.join('  +  ');
+  }
+
+  // Meter + tier
+  var meter=document.getElementById('r-meter');
+  var tierEl=document.getElementById('r-tier');
+  var tierLabel=document.getElementById('r-tier-label');
+  var tierSubEl=document.getElementById('r-tier-sub');
+  var sTier=document.getElementById('s-tier');
+  var resultsSub=document.getElementById('results-sub');
+
+  if(pct===null){
+    meter.style.width='0';
+    tierEl.className='tier-badge tier-none';
+    tierLabel.textContent='Not scored';
+    tierSubEl.textContent='Complete the assessment';
+    sTier.textContent='Not scored';
+    sTier.style.color='var(--white)';
+    resultsSub.textContent='Answer the items above to generate your facility’s score.';
+    return;
+  }
+
+  var t=tierFor(pct);
+  meter.style.width=pct+'%';
+  meter.style.background=(t.key==='low')?'var(--green)':(t.key==='medium')?'#FACC15':(t.key==='high')?'var(--orange)':'#F87171';
+  tierEl.className='tier-badge '+t.cls;
+  tierLabel.textContent=t.label;
+  tierSubEl.textContent=tierSub(t.key);
+  sTier.textContent=t.label;
+  sTier.style.color=(t.key==='low')?'var(--green)':(t.key==='medium')?'#FACC15':(t.key==='high')?'var(--orange)':'#F87171';
+
+  var remaining=TOTAL_ITEMS-scored;
+  resultsSub.textContent=remaining>0
+    ? 'Live estimate from '+scored+' scored item'+(scored===1?'':'s')+'. '+remaining+' still unanswered.'
+    : 'Full assessment complete — all '+TOTAL_ITEMS+' items scored.';
+}
+
+document.getElementById('scorecard').addEventListener('change',function(e){
+  if(e.target&&e.target.type==='radio')compute();
 });
+
+compute();
 </script>
 
 </body>
