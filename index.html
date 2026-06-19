@@ -53,6 +53,12 @@ section.pad{padding:100px 0}
 .nav-links a:hover{color:var(--white)}
 .nav-cta{background:var(--orange);color:white !important;font-size:13px;font-weight:700;padding:10px 20px;border-radius:6px;transition:transform 0.2s}
 .nav-cta:hover{transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:8px;cursor:pointer;flex-shrink:0}
+.nav-burger span{display:block;width:20px;height:2px;margin:0 auto;background:var(--white);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* Hero */
 .hero{background:var(--navy);min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:90px;padding-bottom:80px}
@@ -285,11 +291,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 /* Responsive */
 @media(max-width:900px){
   .nav{padding:12px 18px}
-  .nav-links a:not(.nav-cta){display:none}
+  .nav-burger{display:flex}
+  .nav-right{gap:14px}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 14px 30px rgba(0,0,0,0.35);padding:6px 18px 14px;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height 0.3s ease,opacity 0.25s ease,visibility 0.25s ease}
+  .nav.open .nav-links{max-height:360px;opacity:1;visibility:visible}
+  .nav-links a{display:block;padding:14px 4px;font-size:15px;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.06)}
+  .nav-links a:last-child{border-bottom:none}
   .nav-brand{min-width:0;flex-shrink:1}
   .nav-name{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nav-logo{flex-shrink:0}
-  .nav-links{flex-shrink:0}
   .nav-cta{font-size:12px;padding:9px 15px;white-space:nowrap}
   .wrap{padding:0 20px}
   section.pad{padding:72px 0}
@@ -374,13 +384,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <img src="/logo.png" alt="ACES Compliance Systems" class="nav-logo" width="36" height="36" decoding="async" fetchpriority="high">
     <div class="nav-name"><span>ACES</span><span class="nav-name-suffix"> Compliance Systems</span></div>
   </a>
-  <div class="nav-links">
-    <a href="#problem">Why ACES</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#tiers">Services</a>
-    <a href="#scorecard">Scorecard</a>
-    <a href="#faq">FAQ</a>
+  <div class="nav-right">
+    <div class="nav-links" id="nav-menu">
+      <a href="#problem">Why ACES</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#tiers">Services</a>
+      <a href="#scorecard">Scorecard</a>
+      <a href="#faq">FAQ</a>
+    </div>
     <a href="https://calendly.com/nalsharife-acescompliancesystems/30min" target="_blank" rel="noopener" class="nav-cta">Free Consultation →</a>
+    <button type="button" class="nav-burger" id="nav-burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -1076,6 +1091,24 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   var u='acescompliancesystems',d='gmail.com',e=u+'@'+d;
   var link=document.getElementById('footer-email-link');
   if(link){link.textContent=e;link.href='mai'+'lto:'+e;}
+})();
+
+// ---- Mobile nav (hamburger) toggle ----
+(function(){
+  var nav=document.querySelector('.nav');
+  var burger=document.getElementById('nav-burger');
+  var menu=document.getElementById('nav-menu');
+  if(!nav||!burger||!menu) return;
+  function setOpen(open){
+    nav.classList.toggle('open',open);
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  }
+  burger.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  // Close the menu after tapping a link so the in-page anchor scroll is visible
+  Array.prototype.forEach.call(menu.querySelectorAll('a'),function(a){
+    a.addEventListener('click',function(){ setOpen(false); });
+  });
 })();
 
 // ---- Supabase client (anon key — safe to expose; RLS allows anon INSERT only) ----
