@@ -359,7 +359,7 @@ doc.fillColor(WHITE).font('Helvetica-Bold').fontSize(13)
 
 doc.fillColor(SLATE).font('Helvetica').fontSize(9.5)
    .text(
-     'This scorecard covers the top 25 citation areas. A full ACES compliance audit covers 135+ OSHA standards with AI photo analysis, specific CFR citations, penalty exposure calculations, and corrective action plans.',
+     'This scorecard covers the top 25 citation areas. A full ACES compliance audit covers 137+ OSHA standards with AI photo analysis, specific CFR citations, penalty exposure calculations, and corrective action plans.',
      PAGE_MARGIN + 18, ctaY + 30, { width: CONTENT_WIDTH - 36, lineGap: 1 }
    )
 
