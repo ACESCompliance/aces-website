@@ -8,6 +8,14 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="apple-touch-icon" href="/logo.png">
+<!-- Google Analytics: Replace GA_MEASUREMENT_ID with your actual ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -226,7 +234,7 @@ main{padding:40px 0 20px}
 <script>
 // ---- Reveal email (anti-scraper) ----
 (function(){
-  var u='acescompliancesystems',d='gmail.com',e=u+'@'+d;
+  var u='nalsharife',d='acescompliancesystems.com',e=u+'@'+d;
   var link=document.getElementById('cta-email');
   if(link){link.textContent=e;link.href='mai'+'lto:'+e+'?subject=OSHA%20Scorecard%20Question';}
 })();
