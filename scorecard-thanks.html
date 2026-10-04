@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OSHA Warehouse Compliance Scorecard — Self-Assessment | ACES</title>
-<meta name="description" content="Interactive OSHA warehouse compliance self-assessment across the 8 categories OSHA inspectors evaluate. Score your facility, estimate penalty exposure, and get your risk tier in under 10 minutes.">
+<meta name="description" content="Interactive OSHA warehouse compliance self-assessment across 8 key OSHA compliance areas for warehouses. Score your facility, estimate penalty exposure, and get your risk tier in under 10 minutes.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="apple-touch-icon" href="/logo.png">
@@ -147,7 +147,7 @@ main{padding:40px 0 20px}
   <div class="hero-inner">
     <div class="tag">Interactive Self-Assessment</div>
     <h1>OSHA Warehouse Compliance Scorecard</h1>
-    <p>Score your facility across the 8 areas OSHA inspectors evaluate during a warehouse inspection. Answer honestly for each item — your compliance score, estimated penalty exposure, and risk tier update live as you go. Nothing is submitted; this assessment stays in your browser.</p>
+    <p>Score your facility across 8 key OSHA compliance areas for warehouses. Answer honestly for each item — your compliance score, estimated penalty exposure, and risk tier update live as you go. Nothing is submitted; this assessment stays in your browser.</p>
     <div class="how">
       <span class="chip"><span class="sw" style="background:var(--green)"></span>Compliant — in place &amp; documented</span>
       <span class="chip"><span class="sw" style="background:var(--amber)"></span>Partial — exists but has gaps</span>
@@ -189,7 +189,7 @@ main{padding:40px 0 20px}
           <div class="meter"><div class="meter-fill" id="r-meter"></div></div>
 
           <div class="results-note" id="r-note">
-            Penalty estimates use 2026 OSHA maximums: <strong>$16,550</strong> per serious and per other-than-serious violation, with willful/repeat violations reaching <strong>$165,514</strong> each. Each Non-Compliant item is counted at the serious rate and each Partial item at roughly half, as a directional estimate of exposure — not a formal citation. An actual OSHA inspection can cite multiple instances per standard, so real-world exposure is often higher.
+            Penalty estimates use 2026 OSHA maximums: <strong>$16,550</strong> per serious and per other-than-serious violation, with willful/repeat violations reaching <strong>$165,514</strong> each. Each Non-Compliant item is counted at the serious rate and each Partial item at roughly half, as a directional estimate of exposure — not a formal citation. Actual penalties depend on severity and probability: OSHA can cite multiple instances of the same standard, and can also reduce penalties for company size, good faith, and history.
           </div>
         </div>
       </section>
@@ -239,55 +239,55 @@ main{padding:40px 0 20px}
   if(link){link.textContent=e;link.href='mai'+'lto:'+e+'?subject=OSHA%20Scorecard%20Question';}
 })();
 
-// ---- Assessment data: 8 categories OSHA evaluates in a warehouse inspection ----
+// ---- Assessment data: 8 OSHA compliance areas for warehouses (citations checked against the ACES OSHA library, 2026-10) ----
 var CATEGORIES=[
-  {n:1,title:'Walking-Working Surfaces',cfr:'29 CFR 1910.22–25',items:[
-    {q:'Are all aisles and passageways at least 4 feet wide and clearly marked?',ref:'1910.22(b)'},
-    {q:'Are floors kept clean, dry, and free of slip/trip hazards?',ref:'1910.22(a)(2)'},
-    {q:'Are all floor holes and wall openings properly guarded?',ref:'1910.23'},
+  {n:1,title:'Walking-Working Surfaces',cfr:'29 CFR 1910.22, 1910.28',items:[
+    {q:'Are walking surfaces inspected regularly, with hazards repaired or guarded before anyone uses them?',ref:'1910.22(d)'},
+    {q:'Are floors kept clean, dry where feasible, and free of hazards like spills and loose boards?',ref:'1910.22(a)'},
+    {q:'Are holes and open edges where someone could fall 4 feet or more covered or guarded?',ref:'1910.28(b)'},
     {q:'Is housekeeping maintained in storage and work areas?',ref:'1910.22(a)(1)'}
   ]},
   {n:2,title:'Powered Industrial Trucks',cfr:'29 CFR 1910.178',items:[
-    {q:'Are all forklift operators trained and certified within the last 3 years?',ref:'1910.178(l)(4)(iii)'},
-    {q:'Are daily pre-shift inspections documented?',ref:'1910.178(q)(7)'},
-    {q:'Is there a documented forklift maintenance program?',ref:'1910.178(q)'},
-    {q:'Are speed limits posted and pedestrian traffic patterns established?',ref:'1910.178(n)'},
-    {q:'Are forklifts equipped with proper safety devices (horns, lights, backup alarms)?',ref:'1910.178(a)(4)'}
+    {q:'Has every forklift operator been trained, evaluated, and certified, with a performance evaluation at least every 3 years?',ref:'1910.178(l)'},
+    {q:'Is every truck examined before use at least daily (after each shift if trucks run around the clock)?',ref:'1910.178(q)(7)'},
+    {q:'Are trucks with safety defects removed from service until repaired by authorized personnel?',ref:'1910.178(q)'},
+    {q:'Do drivers travel at a safe speed, and slow down and sound the horn at cross aisles and blind spots?',ref:'1910.178(n)'},
+    {q:'Are brakes set and wheel chocks in place on trucks and trailers during loading and unloading?',ref:'1910.178(m)(7)'}
   ]},
   {n:3,title:'Hazard Communication',cfr:'29 CFR 1910.1200',items:[
     {q:'Is there a written Hazard Communication program?',ref:'1910.1200(e)'},
-    {q:'Are all chemical containers properly labeled with GHS labels?',ref:'1910.1200(f)'},
-    {q:'Are Safety Data Sheets accessible to all employees within the work area?',ref:'1910.1200(g)'},
+    {q:'Is every chemical container labeled with the product identifier and hazard warnings?',ref:'1910.1200(f)'},
+    {q:'Are Safety Data Sheets readily accessible to employees in their work area on every shift?',ref:'1910.1200(g)(8)'},
     {q:'Have all employees received HazCom training appropriate to their duties?',ref:'1910.1200(h)'}
   ]},
-  {n:4,title:'Electrical Safety',cfr:'29 CFR 1910.303–308',items:[
-    {q:'Do all electrical panels have 36 inches of clear working space?',ref:'1910.303(g)(1)'},
-    {q:'Are all junction boxes and panel covers in place?',ref:'1910.305(b)(1)'},
-    {q:'Is all wiring properly secured and free of damage?',ref:'1910.305(b)'},
-    {q:'Are GFCI outlets installed where required (wet/damp locations)?',ref:'1910.304(b)(3)'}
+  {n:4,title:'Electrical Safety',cfr:'29 CFR 1910.303–305',items:[
+    {q:'Do electrical panels have at least 36 inches of clear working space, never used for storage?',ref:'1910.303(g)(1)'},
+    {q:'Do all junction boxes, pull boxes, and fittings have covers in place?',ref:'1910.305(b)(2)(i)'},
+    {q:'Are unused openings in panels and boxes (missing knockouts or breaker blanks) closed?',ref:'1910.305(b)(1)(ii)'},
+    {q:'Are extension cords never used as a substitute for permanent wiring?',ref:'1910.305(g)'}
   ]},
   {n:5,title:'Fire Protection & Emergency Exits',cfr:'29 CFR 1910.34–39, 1910.157',items:[
-    {q:'Are fire extinguishers inspected monthly and serviced annually?',ref:'1910.157(e)'},
-    {q:'Are all emergency exits clearly marked, illuminated, and unobstructed?',ref:'1910.37(b)'},
-    {q:'Is there a written Emergency Action Plan communicated to employees?',ref:'1910.38'},
-    {q:'Are exit routes properly maintained and accessible?',ref:'1910.37(a)'}
+    {q:'Are fire extinguishers visually inspected monthly and given an annual maintenance check?',ref:'1910.157(e)'},
+    {q:'Is every exit clearly visible and marked by an illuminated Exit sign?',ref:'1910.37(b)'},
+    {q:'Where OSHA requires one, is there a written Emergency Action Plan available to employees?',ref:'1910.38(b)'},
+    {q:'Are exit routes kept free and unobstructed, with nothing stored in them?',ref:'1910.37(a)(3)'}
   ]},
   {n:6,title:'Material Storage & Handling',cfr:'29 CFR 1910.176',items:[
-    {q:'Are rack systems inspected regularly and load capacity posted?',ref:'1910.176(b)'},
-    {q:'Are materials stored securely without overhanging beam edges?',ref:'1910.176(b)'},
-    {q:'Are heavy items stored at appropriate heights to prevent tip-over?',ref:'1910.176(b)'},
-    {q:'Is there proper clearance between top of stock and sprinkler heads (18 inches)?',ref:'1910.159(c)(10)'}
+    {q:'Are aisles kept clear with safe clearance for forklifts, and permanent aisles marked?',ref:'1910.176(a)'},
+    {q:'Are materials stacked, blocked, interlocked, and limited in height so they are stable and secure?',ref:'1910.176(b)'},
+    {q:'Are storage areas free of accumulated material that creates tripping, fire, or pest hazards?',ref:'1910.176(c)'},
+    {q:'Where a clearance limit exists (low beams, doorways), is a warning sign posted?',ref:'1910.176(e)'}
   ]},
   {n:7,title:'Personal Protective Equipment',cfr:'29 CFR 1910.132–138',items:[
-    {q:'Has a PPE hazard assessment been completed and documented?',ref:'1910.132(d)'},
-    {q:'Is appropriate PPE provided to employees at no cost?',ref:'1910.132(h)'},
+    {q:'Has a PPE hazard assessment been completed and certified in writing?',ref:'1910.132(d)'},
+    {q:'Is required PPE provided at no cost to employees (limited exceptions apply)?',ref:'1910.132(h)'},
     {q:'Are employees trained on proper use, care, and limitations of PPE?',ref:'1910.132(f)'},
-    {q:'Is respiratory protection available where required, with fit testing current?',ref:'1910.134(f)'}
+    {q:'Where respirators are required, are tight-fitting respirators fit tested at least annually?',ref:'1910.134(f)'}
   ]},
   {n:8,title:'Lockout/Tagout & Machine Guarding',cfr:'29 CFR 1910.147, 1910.212',items:[
     {q:'Is there a written Lockout/Tagout program with machine-specific procedures?',ref:'1910.147(c)(4)'},
     {q:'Are all employees who perform servicing trained on LOTO procedures?',ref:'1910.147(c)(7)'},
-    {q:'Are all moving parts on machinery properly guarded?',ref:'1910.212(a)(1)'},
+    {q:'Are machine hazards such as nip points and rotating parts guarded?',ref:'1910.212(a)(1)'},
     {q:'Are annual LOTO procedure audits (periodic inspections) conducted?',ref:'1910.147(c)(6)'}
   ]}
 ];
