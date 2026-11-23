@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schema/sitemap/0.9">
-  <url><loc>https://acescompliancesystems.com/</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://acescompliancesystems.com/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://acescompliancesystems.com/program/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://acescompliancesystems.com/who-we-work-with/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://acescompliancesystems.com/about/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://acescompliancesystems.com/faq/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://acescompliancesystems.com/contact/</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
